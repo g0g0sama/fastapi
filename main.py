@@ -12,18 +12,7 @@ import time
 app = FastAPI()
 
 
-def find_post(id):
-    for p in my_posts:
-        if p["id"] == id:
-            return p
-        
 
-def find_index_post(id):
-    for i,p in enumerate(my_posts):
-        if p["id"] == id:
-            return i
-
-my_posts = [{"title": "kırlarda oyun oynamak", "content": "güzldr", "id":1}]
 
 class Post(BaseModel):
     name: str
