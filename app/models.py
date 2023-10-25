@@ -10,5 +10,4 @@ class Post(Base):
     name = Column(String, nullable= False)
     price = Column(Integer, nullable= False)
     created_at = Column(TIMESTAMP(timezone=True), nullable= False, server_default=text("now()"))
-
-
+    published = Column(Boolean, server_default= "True", nullable=False)
