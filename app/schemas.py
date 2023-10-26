@@ -1,10 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
 
 class PostBase(BaseModel):
     name: str
     price: int
+    
 
 
 
@@ -16,10 +17,21 @@ class PostUpdate(PostBase):
     pass
 
 
-class Post(BaseModel):
-    name: str
-    price: int
+class Post(PostBase):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+class UserCreate(BaseModel):
+    email:EmailStr
+    password:str
+
+
+class UserOut(BaseModel):
+    id: int
+    email: EmailStr
+
+    class Config:
+        from_attributes = True
+    
